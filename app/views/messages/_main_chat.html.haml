@@ -1,0 +1,34 @@
+.main-chat
+
+
+  .main-chat__header
+    .main-chat__header__left-box
+      .main-chat__header__left-box__current-group
+        田中軍団
+      .main-chat__header__left-box__member-list
+        Member : tanaka
+
+    = link_to "#", class:"Edit" do
+      .main-chat__header__right-box
+        Edit
+  
+
+  .main-chat__contents
+    .main-chat__contents__message
+      .main-chat__contents__message__info
+        .main-chat__contents__message__info__talker
+          田中次郎
+        .main-chat__contents__message__info__date
+          2020/01/03(Fri) 10:54:49
+      .main-chat__contents__message__text
+        田中最高
+  
+  .footer
+    .footer__message
+      .footer__message__input-box
+        %input{type: "text", class: "footer__message__input-box__text", placeholder: "type a message"}
+          %label{class: "footer__message__input-box__image"}
+            = icon('fas','image')
+            %input{type: "file", class: "footer__message__input-box__image__file"}
+      %input{type: "submit", class: "submit-btn" , Value: "Send"}
+        
