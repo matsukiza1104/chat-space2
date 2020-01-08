@@ -154,7 +154,6 @@
           padding: 0 40px 0 10px;
           color: #434a54;
           border-style: none;
-          
         }
         &__image {
           position: absolute;
@@ -164,10 +163,11 @@
           font-size: 1.3rem;
         }
       
-      &__image__file {
-        display: none;
+        &__image__file {
+          display: none;
+        }
       }
-    }
+
       .submit-btn {
         width: 100px;
         height: 50px;

@@ -1,34 +1,26 @@
 .main-chat
-
-
   .main-chat__header
     .main-chat__header__left-box
       .main-chat__header__left-box__current-group
-        田中軍団
+        = @group.name
       .main-chat__header__left-box__member-list
-        Member : tanaka
-
-    = link_to "#", class:"Edit" do
+        Member : 
+        - @group.users.each do |user|
+          = user.name
+    = link_to "edit", class:"Edit" do
       .main-chat__header__right-box
         Edit
   
 
   .main-chat__contents
-    .main-chat__contents__message
-      .main-chat__contents__message__info
-        .main-chat__contents__message__info__talker
-          田中次郎
-        .main-chat__contents__message__info__date
-          2020/01/03(Fri) 10:54:49
-      .main-chat__contents__message__text
-        田中最高
-  
+    -# .main-chat__contents__message
+    = render @messages
+
   .footer
-    .footer__message
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'footer__message', placeholder: 'type a message'
       .footer__message__input-box
-        %input{type: "text", class: "footer__message__input-box__text", placeholder: "type a message"}
-          %label{class: "footer__message__input-box__image"}
-            = icon('fas','image')
-            %input{type: "file", class: "footer__message__input-box__image__file"}
-      %input{type: "submit", class: "submit-btn" , Value: "Send"}
-        
+        = f.label :image, class: 'footer__message__input-box__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'footer__message__input-box__image__file'
+      = f.submit 'Send', class: 'submit-btn'
