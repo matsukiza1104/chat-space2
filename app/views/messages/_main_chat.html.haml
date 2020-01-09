@@ -13,7 +13,6 @@
   
 
   .main-chat__contents
-    -# .main-chat__contents__message
     = render @messages
 
   .footer
@@ -22,5 +21,5 @@
       .footer__message__input-box
         = f.label :image, class: 'footer__message__input-box__image' do
           = icon('fas', 'image', class: 'icon')
-          = f.file_field :image, class: 'footer__message__input-box__image__file'
+          = f.file_field :image, class: 'hidden'
       = f.submit 'Send', class: 'submit-btn'
